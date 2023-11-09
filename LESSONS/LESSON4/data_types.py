@@ -1,3 +1,5 @@
+import math
+
 #String data types
 #Litteraly assignment
 first = 'Dave'
@@ -78,4 +80,17 @@ best_price = int(80)
 print(type(price))
 print(type(price) == int)
 print(isinstance(price,int))
+
+# Float data types
+gpa = 18.4
+y = float(18.4)
+print(type(y))
+
+#complex type
+comp_value = 5+3j
+print(type(comp_value))
+print(comp_value.real)
+print(comp_value.imag)
+
+print(math.pi)
 
