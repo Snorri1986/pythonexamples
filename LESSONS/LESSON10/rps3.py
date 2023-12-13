@@ -8,10 +8,6 @@ def play_rps():
         PAPER = 2
         SCISSORS = 3
 
-    playagain = True
-
-    while playagain:
-
         # different ways to access value on Enum class
         # print(RPS(2))
         # print(RPS.ROCK)
@@ -19,40 +15,51 @@ def play_rps():
         # print(RPS.ROCK.value)
         # sys.exit()
 
-        userchoice = input('\nMake a choose:\n 1-for Rock\n 2-for Paper\n 3-for Scissors:\n\n')
+    playerchoice = input (
+        "\nEnter... \n1 for Rock,\n2 for Paper,or \n3 for Scissors:\n\n"
+    )
 
-        player = int(userchoice)
+    if playerchoice not in ["1","2","3"]:
+        print('You must enter 1,2 or 3')
+        return play_rps()
 
-        if player < 1 | player > 3:
-            sys.exit('You must enter 1,2 or 3')
+    userchoice = input('\nMake a choose:\n 1-for Rock\n 2-for Paper\n 3-for Scissors:\n\n')
 
-        computerchoice = random.choice('123')
-        computer = int(computerchoice)
+    player = int(userchoice)
 
-        print('\nYou chose ' + str(RPS(player)).replace('RPS.','') + '.')
-        print('Python chose ' + str(RPS(computer)).replace('RPS.','') + '.\n')
-        
+    computerchoice = random.choice('123')
+    computer = int(computerchoice)
 
-        if player == 1 and computer == 3 :
-            print('🍾You win')
-        elif player == 2 and computer == 3 :
-            print('🍾You win')
-        elif player == 3 and computer == 2 :
-            print('🍾You win')
-        elif player == computer :
-            print('😲Tie game')
-        else :
-            print('🐍Phyton win')
+    print('\nYou chose ' + str(RPS(player)).replace('RPS.','') + '.')
+    print('Python chose ' + str(RPS(computer)).replace('RPS.','') + '.\n')
+    
 
-        playagain = input("\nPlay again? \nY for Yes or \nQ to Quit \n\n")
+    if player == 1 and computer == 3 :
+        print('🍾You win')
+    elif player == 2 and computer == 3 :
+        print('🍾You win')
+    elif player == 3 and computer == 2 :
+        print('🍾You win')
+    elif player == computer :
+        print('😲Tie game')
+    else :
+        print('🐍Phyton win')
 
-        if playagain.lower() == "y":
-            continue
-        else:
-            print("\nCelebrate")
-            print("Thank you for playing")
-            playagain = False
+    print("\nPlay again?")
+    while True:
+       playagain = input("\nY for Yes or \nQ to Quit\n")
+       if playagain.lower() not in ["y","q"]:
+           continue
+       else:
+           break 
 
-sys.exit("Bye")
+    if playagain.lower() == "y":
+        return play_rps()
+    else:
+        print("\nCelebrate")
+        print("Thank you for playing")
+        sys.exit("Bye")
+
+play_rps()
 
 
