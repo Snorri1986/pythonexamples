@@ -1,15 +1,21 @@
 
 
 name = "Dave" # global scope
+count = 1
 
 
     
-greeting("Denys")
+#greeting("Denys")
 
 def another():
     color = "blue"
+    global count
+    count += 1
+    print(count)
+    
     def greeting(name):
-        color = "blue"
+        nonlocal color
+        color = "red"
         print(color)
         print(name) # print the variable from local scope 
 
