@@ -19,3 +19,30 @@ print(message)
 
 message = "\n{person} has {coins} coins left.".format(**player)
 print(message)
+
+########################
+# F-strings are done
+
+message = f"\n{person} has {coins} coins left"
+print(message)
+
+message = f"\n{person} has {2 * 5} coins left"
+print(message)
+
+message = f"\n{person.lower()} has {2 * 5} coins left"
+print(message)
+
+message = f"\n{player['person']} has {2 * 5} coins left"
+print(message)
+
+########################
+# Options for F-strings
+
+num = 10
+print(f"\n2.25 times {num} is {2.25 * num:.2f}")
+
+for num in range(1,11):
+    print(f"2.25 times {num} is {2.25 * num:.2f}\n")
+
+for num in range(1,11):
+    print(f"{num} divided by 4.52 is {num / 4.25:.2%}")
